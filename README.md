@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI Spend Audit Tool
 
-## Getting Started
+A web application that helps startups analyze and optimize their AI tool spending.
 
-First, run the development server:
+## Features
+
+- AI spending audit
+- Savings recommendations
+- Shareable audit reports
+- AI-generated summaries
+
+## Tech Stack
+
+- Next.js
+- TypeScript
+- Tailwind CSS
+- Supabase
+
+## Run Locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Save.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# STEP 18 — Create DEVLOG.md
 
-## Learn More
+Create:
 
-To learn more about Next.js, take a look at the following resources:
+```txt id="nhx03y"
+DEVLOG.md
+## Day 1 — 2026-05-07
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**Hours worked:** 5
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+**What I did:**
+- Initialized Next.js project
+- Configured Tailwind CSS
+- Structured folders
+- Connected GitHub repository
+- Setup Supabase
+- Created initial project files
 
-## Deploy on Vercel
+**What I learned:**
+- Better understanding of Next.js App Router
+- Learned Supabase project setup
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+**Blockers / what I'm stuck on:**
+- Thinking about best structure for audit engine logic
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Plan for tomorrow:**
+- Build AI spend input form
