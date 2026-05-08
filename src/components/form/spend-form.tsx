@@ -10,7 +10,6 @@ export default function SpendForm() {
   const [selectedPlan, setSelectedPlan] = useState("");
   const [useCase, setUseCase] = useState("");
 
-  // Load saved data from localStorage
   useEffect(() => {
     const savedTeamSize = localStorage.getItem("teamSize");
     const savedSpend = localStorage.getItem("monthlySpend");
@@ -27,7 +26,6 @@ export default function SpendForm() {
     if (savedUseCase) setUseCase(savedUseCase);
   }, []);
 
-  // Save data whenever values change
   useEffect(() => {
     localStorage.setItem("teamSize", teamSize);
     localStorage.setItem("monthlySpend", monthlySpend);
@@ -44,74 +42,112 @@ export default function SpendForm() {
   ]);
 
   return (
-    <div className="max-w-2xl mx-auto bg-zinc-900 p-8 rounded-2xl border border-zinc-800 shadow-lg">
-      <h2 className="text-3xl font-bold mb-6 text-white">
-        AI Spend Audit
-      </h2>
+    <div className="bg-zinc-950/90 backdrop-blur-xl border border-zinc-800 rounded-3xl p-8 shadow-2xl">
+
+      {/* Header */}
+      <div className="mb-8">
+        <h2 className="text-3xl font-bold text-white">
+          Free AI Spend Audit
+        </h2>
+
+        <p className="text-zinc-400 mt-2">
+          Discover hidden savings opportunities in your AI stack.
+        </p>
+      </div>
 
       <div className="space-y-5">
 
-        {/* AI Tool Selection */}
-        <select
-          value={selectedTool}
-          onChange={(e) => setSelectedTool(e.target.value)}
-          className="w-full p-4 rounded-lg bg-zinc-800 border border-zinc-700 text-white"
-        >
-          <option value="">Select AI Tool</option>
-          <option value="ChatGPT">ChatGPT</option>
-          <option value="Claude">Claude</option>
-          <option value="Cursor">Cursor</option>
-          <option value="Gemini">Gemini</option>
-          <option value="GitHub Copilot">GitHub Copilot</option>
-        </select>
+        {/* AI Tool */}
+        <div>
+          <label className="block text-sm text-zinc-400 mb-2">
+            AI Tool
+          </label>
 
-        {/* Plan Selection */}
-        <select
-          value={selectedPlan}
-          onChange={(e) => setSelectedPlan(e.target.value)}
-          className="w-full p-4 rounded-lg bg-zinc-800 border border-zinc-700 text-white"
-        >
-          <option value="">Select Plan</option>
-          <option value="Free">Free</option>
-          <option value="Pro">Pro</option>
-          <option value="Team">Team</option>
-          <option value="Enterprise">Enterprise</option>
-        </select>
+          <select
+            value={selectedTool}
+            onChange={(e) => setSelectedTool(e.target.value)}
+            className="w-full p-4 rounded-xl bg-zinc-900 border border-zinc-700 text-white outline-none focus:border-purple-500 transition"
+          >
+            <option value="">Select AI Tool</option>
+            <option value="ChatGPT">ChatGPT</option>
+            <option value="Claude">Claude</option>
+            <option value="Cursor">Cursor</option>
+            <option value="Gemini">Gemini</option>
+            <option value="GitHub Copilot">GitHub Copilot</option>
+          </select>
+        </div>
+
+        {/* Plan */}
+        <div>
+          <label className="block text-sm text-zinc-400 mb-2">
+            Current Plan
+          </label>
+
+          <select
+            value={selectedPlan}
+            onChange={(e) => setSelectedPlan(e.target.value)}
+            className="w-full p-4 rounded-xl bg-zinc-900 border border-zinc-700 text-white outline-none focus:border-purple-500 transition"
+          >
+            <option value="">Select Plan</option>
+            <option value="Free">Free</option>
+            <option value="Pro">Pro</option>
+            <option value="Team">Team</option>
+            <option value="Enterprise">Enterprise</option>
+          </select>
+        </div>
 
         {/* Team Size */}
-        <input
-          type="number"
-          placeholder="Team Size"
-          value={teamSize}
-          onChange={(e) => setTeamSize(e.target.value)}
-          className="w-full p-4 rounded-lg bg-zinc-800 border border-zinc-700 text-white"
-        />
+        <div>
+          <label className="block text-sm text-zinc-400 mb-2">
+            Team Size
+          </label>
+
+          <input
+            type="number"
+            placeholder="e.g. 10"
+            value={teamSize}
+            onChange={(e) => setTeamSize(e.target.value)}
+            className="w-full p-4 rounded-xl bg-zinc-900 border border-zinc-700 text-white outline-none focus:border-purple-500 transition"
+          />
+        </div>
 
         {/* Monthly Spend */}
-        <input
-          type="number"
-          placeholder="Monthly AI Spend ($)"
-          value={monthlySpend}
-          onChange={(e) => setMonthlySpend(e.target.value)}
-          className="w-full p-4 rounded-lg bg-zinc-800 border border-zinc-700 text-white"
-        />
+        <div>
+          <label className="block text-sm text-zinc-400 mb-2">
+            Monthly AI Spend
+          </label>
+
+          <input
+            type="number"
+            placeholder="e.g. 500"
+            value={monthlySpend}
+            onChange={(e) => setMonthlySpend(e.target.value)}
+            className="w-full p-4 rounded-xl bg-zinc-900 border border-zinc-700 text-white outline-none focus:border-purple-500 transition"
+          />
+        </div>
 
         {/* Use Case */}
-        <select
-          value={useCase}
-          onChange={(e) => setUseCase(e.target.value)}
-          className="w-full p-4 rounded-lg bg-zinc-800 border border-zinc-700 text-white"
-        >
-          <option value="">Primary Use Case</option>
-          <option value="Coding">Coding</option>
-          <option value="Writing">Writing</option>
-          <option value="Research">Research</option>
-          <option value="Data Analysis">Data Analysis</option>
-          <option value="Mixed">Mixed</option>
-        </select>
+        <div>
+          <label className="block text-sm text-zinc-400 mb-2">
+            Primary Use Case
+          </label>
 
-        {/* Submit Button */}
-        <button className="w-full bg-white text-black py-4 rounded-lg font-semibold hover:bg-gray-200 transition">
+          <select
+            value={useCase}
+            onChange={(e) => setUseCase(e.target.value)}
+            className="w-full p-4 rounded-xl bg-zinc-900 border border-zinc-700 text-white outline-none focus:border-purple-500 transition"
+          >
+            <option value="">Select Use Case</option>
+            <option value="Coding">Coding</option>
+            <option value="Writing">Writing</option>
+            <option value="Research">Research</option>
+            <option value="Data Analysis">Data Analysis</option>
+            <option value="Mixed">Mixed</option>
+          </select>
+        </div>
+
+        {/* Button */}
+        <button className="w-full bg-purple-500 hover:bg-purple-400 text-white py-4 rounded-xl font-semibold text-lg transition duration-200 shadow-lg shadow-purple-500/20 mt-6">
           Generate Audit
         </button>
 
