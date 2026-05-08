@@ -53,3 +53,25 @@ DEVLOG.md
 
 **Plan for tomorrow:**
 - Build AI spend input form
+
+## Day 2 — 2026-05-08
+
+**Hours worked:** 5
+
+**What I did:**
+- Built AI spend audit form
+- Added AI tool selection dropdowns
+- Added plan and use case selectors
+- Implemented localStorage persistence
+- Improved landing page UI
+
+**What I learned:**
+- Better understanding of React state management
+- Learned how localStorage persistence works
+
+**Blockers / what I'm stuck on:**
+- Thinking about scalable audit engine logic
+
+**Plan for tomorrow:**
+- Build audit recommendation engine
+- Add savings calculations

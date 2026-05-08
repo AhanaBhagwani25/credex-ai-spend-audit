@@ -1,15 +1,21 @@
+import SpendForm from "../components/form/spend-form";
+
 export default function Home() {
   return (
-    <main className="min-h-screen flex items-center justify-center bg-black text-white">
-      <div className="text-center">
-        <h1 className="text-5xl font-bold">
-          AI Spend Audit Tool
+    <main className="min-h-screen bg-black text-white px-6 py-20">
+
+      <section className="text-center mb-16">
+        <h1 className="text-6xl font-bold leading-tight">
+          Stop Overpaying For AI Tools
         </h1>
 
-        <p className="mt-4 text-gray-400">
-          Optimize your startup's AI spending.
+        <p className="text-zinc-400 mt-6 text-lg max-w-2xl mx-auto">
+          Audit your AI stack instantly and discover savings opportunities.
         </p>
-      </div>
+      </section>
+
+      <SpendForm />
+
     </main>
   );
 }
