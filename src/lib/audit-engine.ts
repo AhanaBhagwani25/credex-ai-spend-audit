@@ -14,40 +14,61 @@ export function generateAudit({
   let savings = 0;
   let reason = "";
 
-  // ChatGPT Logic
+  // ChatGPT
   if (tool === "ChatGPT" && plan === "Team" && teamSize <= 2) {
-    recommendation = "Switch to ChatGPT Pro";
+    recommendation = "Downgrade to ChatGPT Pro";
     savings = 20;
     reason =
-      "Team plan is unnecessary for very small teams.";
+      "Team plan is expensive for smaller teams.";
   }
 
-  // Claude Logic
-  else if (tool === "Claude" && plan === "Team" && teamSize <= 2) {
+  // Claude
+  else if (
+    tool === "Claude" &&
+    plan === "Team" &&
+    teamSize <= 2
+  ) {
     recommendation = "Switch to Claude Pro";
     savings = 20;
     reason =
-      "Claude Team is optimized for larger collaborative teams.";
+      "Claude Team features may be unnecessary for your usage.";
   }
 
-  // Cursor Logic
-  else if (tool === "Cursor" && plan === "Business" && teamSize <= 3) {
+  // Cursor
+  else if (
+    tool === "Cursor" &&
+    plan === "Business" &&
+    teamSize <= 3
+  ) {
     recommendation = "Switch to Cursor Pro";
     savings = 20;
     reason =
-      "Cursor Business features may be excessive for smaller teams.";
+      "Cursor Business is optimized for larger engineering teams.";
+  }
+
+  // Copilot
+  else if (
+    tool === "GitHub Copilot" &&
+    plan === "Enterprise" &&
+    teamSize <= 5
+  ) {
+    recommendation = "Move to Copilot Business";
+    savings = 50;
+    reason =
+      "Enterprise features may not justify current spending.";
   }
 
   else {
-    recommendation = "Current setup looks optimized";
+    recommendation = "Your setup already looks optimized";
     savings = 0;
     reason =
-      "No major savings opportunities detected.";
+      "No major overspending detected in your AI stack.";
   }
 
   return {
     recommendation,
     savings,
+    annualSavings: savings * 12,
     reason,
   };
 }

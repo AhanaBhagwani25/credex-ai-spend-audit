@@ -30,7 +30,7 @@ export default function SpendForm() {
     if (savedUseCase) setUseCase(savedUseCase);
   }, []);
 
-  // Save data
+  // Save form data
   useEffect(() => {
     localStorage.setItem("teamSize", teamSize);
     localStorage.setItem("monthlySpend", monthlySpend);
@@ -46,7 +46,7 @@ export default function SpendForm() {
     useCase,
   ]);
 
-  // Generate Audit
+  // Generate audit
   const handleGenerateAudit = () => {
     const result = generateAudit({
       tool: selectedTool,
@@ -163,7 +163,7 @@ export default function SpendForm() {
           </select>
         </div>
 
-        {/* Button */}
+        {/* Generate Button */}
         <button
           onClick={handleGenerateAudit}
           className="w-full bg-purple-500 hover:bg-purple-400 text-white py-4 rounded-xl font-semibold text-lg transition duration-200 shadow-lg shadow-purple-500/20 mt-6"
@@ -173,33 +173,84 @@ export default function SpendForm() {
 
         {/* Audit Result */}
         {auditResult && (
-          <div className="mt-8 p-6 rounded-2xl bg-zinc-900 border border-zinc-800">
+          <div className="mt-10 rounded-3xl border border-zinc-800 bg-zinc-950 p-8 shadow-2xl">
 
-            <h3 className="text-2xl font-bold text-white mb-4">
-              Audit Result
-            </h3>
+            {/* Header */}
+            <div className="flex items-center justify-between mb-8">
+              <div>
+                <h3 className="text-3xl font-bold text-white">
+                  Audit Report
+                </h3>
 
-            <div className="space-y-3">
+                <p className="text-zinc-400 mt-2">
+                  AI spending optimization summary
+                </p>
+              </div>
 
-              <p className="text-zinc-300">
-                <span className="font-semibold text-white">
-                  Recommendation:
-                </span>{" "}
+              <div className="bg-purple-500/20 text-purple-300 px-4 py-2 rounded-full text-sm border border-purple-500/30">
+                {auditResult.savings > 0
+                  ? "Savings Detected"
+                  : "Already Optimized"}
+              </div>
+            </div>
+
+            {/* Savings Cards */}
+            <div className="grid md:grid-cols-2 gap-5 mb-8">
+
+              <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6">
+                <p className="text-zinc-400 text-sm">
+                  Monthly Savings
+                </p>
+
+                <h4 className="text-4xl font-bold text-white mt-2">
+                  ${auditResult.savings}
+                </h4>
+              </div>
+
+              <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6">
+                <p className="text-zinc-400 text-sm">
+                  Annual Savings
+                </p>
+
+                <h4 className="text-4xl font-bold text-white mt-2">
+                  ${auditResult.annualSavings}
+                </h4>
+              </div>
+
+            </div>
+
+            {/* Recommendation */}
+            <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6">
+
+              <h4 className="text-xl font-semibold text-white mb-4">
+                Recommendation
+              </h4>
+
+              <p className="text-purple-300 text-lg font-medium">
                 {auditResult.recommendation}
               </p>
 
-              <p className="text-zinc-300">
-                <span className="font-semibold text-white">
-                  Estimated Savings:
-                </span>{" "}
-                ${auditResult.savings}/month
-              </p>
-
-              <p className="text-zinc-400">
+              <p className="text-zinc-400 mt-4 leading-relaxed">
                 {auditResult.reason}
               </p>
 
             </div>
+
+            {/* High Savings Alert */}
+            {auditResult.savings >= 50 && (
+              <div className="mt-6 bg-purple-500/10 border border-purple-500/20 rounded-2xl p-5">
+
+                <h4 className="text-purple-300 font-semibold text-lg">
+                  Significant Savings Opportunity
+                </h4>
+
+                <p className="text-zinc-300 mt-2">
+                  Your team may benefit from discounted AI infrastructure credits through Credex.
+                </p>
+
+              </div>
+            )}
+
           </div>
         )}
 
