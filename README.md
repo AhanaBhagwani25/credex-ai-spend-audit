@@ -75,3 +75,63 @@ DEVLOG.md
 **Plan for tomorrow:**
 - Build audit recommendation engine
 - Add savings calculations
+
+# AI Spend Audit Tool
+
+A modern SaaS-style web application that helps startups analyze and optimize their AI infrastructure spending across tools like ChatGPT, Claude, Cursor, Gemini, and GitHub Copilot.
+
+Built for the Credex Web Development Internship Round 1 assignment.
+
+---
+
+# Features
+
+## Current Features
+
+- Modern responsive landing page
+- AI spend audit form
+- AI tool selection
+- Pricing plan selection
+- Team size & monthly spend inputs
+- Primary use case selection
+- LocalStorage persistence
+- Dynamic audit recommendation engine
+- Savings estimation logic
+- Real-time audit result generation
+
+---
+
+# Tech Stack
+
+- Next.js 15
+- TypeScript
+- Tailwind CSS
+- React
+- Supabase
+- Vercel
+
+---
+
+# How It Works
+
+1. User selects their AI tool
+2. Chooses current pricing plan
+3. Enters team size and monthly spend
+4. Audit engine analyzes spending
+5. App generates optimization recommendations and savings estimates
+
+---
+
+# Project Structure
+
+```txt
+src/
+ ├── app/
+ ├── components/
+ │    ├── form/
+ │    ├── layout/
+ │    └── sections/
+ ├── lib/
+ ├── tests/
+ ├── types/
+ └── utils/

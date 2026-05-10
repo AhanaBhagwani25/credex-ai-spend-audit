@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { generateAudit } from "../../lib/audit-engine";
 
 export default function SpendForm() {
   const [teamSize, setTeamSize] = useState("");
@@ -10,6 +11,9 @@ export default function SpendForm() {
   const [selectedPlan, setSelectedPlan] = useState("");
   const [useCase, setUseCase] = useState("");
 
+  const [auditResult, setAuditResult] = useState<any>(null);
+
+  // Load saved data
   useEffect(() => {
     const savedTeamSize = localStorage.getItem("teamSize");
     const savedSpend = localStorage.getItem("monthlySpend");
@@ -26,6 +30,7 @@ export default function SpendForm() {
     if (savedUseCase) setUseCase(savedUseCase);
   }, []);
 
+  // Save data
   useEffect(() => {
     localStorage.setItem("teamSize", teamSize);
     localStorage.setItem("monthlySpend", monthlySpend);
@@ -40,6 +45,17 @@ export default function SpendForm() {
     selectedPlan,
     useCase,
   ]);
+
+  // Generate Audit
+  const handleGenerateAudit = () => {
+    const result = generateAudit({
+      tool: selectedTool,
+      plan: selectedPlan,
+      teamSize: Number(teamSize),
+    });
+
+    setAuditResult(result);
+  };
 
   return (
     <div className="bg-zinc-950/90 backdrop-blur-xl border border-zinc-800 rounded-3xl p-8 shadow-2xl">
@@ -93,6 +109,7 @@ export default function SpendForm() {
             <option value="Pro">Pro</option>
             <option value="Team">Team</option>
             <option value="Enterprise">Enterprise</option>
+            <option value="Business">Business</option>
           </select>
         </div>
 
@@ -147,9 +164,44 @@ export default function SpendForm() {
         </div>
 
         {/* Button */}
-        <button className="w-full bg-purple-500 hover:bg-purple-400 text-white py-4 rounded-xl font-semibold text-lg transition duration-200 shadow-lg shadow-purple-500/20 mt-6">
+        <button
+          onClick={handleGenerateAudit}
+          className="w-full bg-purple-500 hover:bg-purple-400 text-white py-4 rounded-xl font-semibold text-lg transition duration-200 shadow-lg shadow-purple-500/20 mt-6"
+        >
           Generate Audit
         </button>
+
+        {/* Audit Result */}
+        {auditResult && (
+          <div className="mt-8 p-6 rounded-2xl bg-zinc-900 border border-zinc-800">
+
+            <h3 className="text-2xl font-bold text-white mb-4">
+              Audit Result
+            </h3>
+
+            <div className="space-y-3">
+
+              <p className="text-zinc-300">
+                <span className="font-semibold text-white">
+                  Recommendation:
+                </span>{" "}
+                {auditResult.recommendation}
+              </p>
+
+              <p className="text-zinc-300">
+                <span className="font-semibold text-white">
+                  Estimated Savings:
+                </span>{" "}
+                ${auditResult.savings}/month
+              </p>
+
+              <p className="text-zinc-400">
+                {auditResult.reason}
+              </p>
+
+            </div>
+          </div>
+        )}
 
       </div>
     </div>
