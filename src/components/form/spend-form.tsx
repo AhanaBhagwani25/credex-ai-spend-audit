@@ -3,32 +3,49 @@
 import { useEffect, useState } from "react";
 import { generateAudit } from "../../lib/audit-engine";
 
+type AuditResult = {
+  recommendation: string;
+  savings: number;
+  annualSavings: number;
+  reason: string;
+};
+
 export default function SpendForm() {
-  const [teamSize, setTeamSize] = useState("");
-  const [monthlySpend, setMonthlySpend] = useState("");
+  const [teamSize, setTeamSize] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem("teamSize") || "";
+    }
+    return "";
+  });
+  const [monthlySpend, setMonthlySpend] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem("monthlySpend") || "";
+    }
+    return "";
+  });
 
-  const [selectedTool, setSelectedTool] = useState("");
-  const [selectedPlan, setSelectedPlan] = useState("");
-  const [useCase, setUseCase] = useState("");
+  const [selectedTool, setSelectedTool] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem("selectedTool") || "";
+    }
+    return "";
+  });
+  const [selectedPlan, setSelectedPlan] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem("selectedPlan") || "";
+    }
+    return "";
+  });
+  const [useCase, setUseCase] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem("useCase") || "";
+    }
+    return "";
+  });
 
-  const [auditResult, setAuditResult] = useState<any>(null);
+  const [auditResult, setAuditResult] = useState<AuditResult | null>(null);
 
-  // Load saved data
-  useEffect(() => {
-    const savedTeamSize = localStorage.getItem("teamSize");
-    const savedSpend = localStorage.getItem("monthlySpend");
-
-    const savedTool = localStorage.getItem("selectedTool");
-    const savedPlan = localStorage.getItem("selectedPlan");
-    const savedUseCase = localStorage.getItem("useCase");
-
-    if (savedTeamSize) setTeamSize(savedTeamSize);
-    if (savedSpend) setMonthlySpend(savedSpend);
-
-    if (savedTool) setSelectedTool(savedTool);
-    if (savedPlan) setSelectedPlan(savedPlan);
-    if (savedUseCase) setUseCase(savedUseCase);
-  }, []);
+  // Load saved data - removed since we're initializing with localStorage
 
   // Save form data
   useEffect(() => {
@@ -52,6 +69,7 @@ export default function SpendForm() {
       tool: selectedTool,
       plan: selectedPlan,
       teamSize: Number(teamSize),
+      monthlySpend: Number(monthlySpend),
     });
 
     setAuditResult(result);
