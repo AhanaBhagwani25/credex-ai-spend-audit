@@ -1,42 +1,55 @@
-# Economics
+# Reflection
 
-## Estimated Infrastructure Costs
+## What Went Well
 
-### Vercel Hosting
-- Hobby Plan: $0/month during development
-- Estimated production cost: $20/month
-
-### Supabase
-- Free tier during MVP stage
-- Estimated production cost: $25/month
-
-### Domain
-- Approximate annual domain cost: $15/year
-
-### AI APIs (Future)
-- OpenAI API estimated cost: $50–200/month depending on usage
-- Anthropic API estimated cost: $50–150/month
+- Successfully built a responsive SaaS-style AI spend audit application
+- Implemented a working recommendation engine
+- Built a modern frontend using reusable components
+- Added localStorage persistence for better UX
+- Maintained regular GitHub commits during development
 
 ---
 
-# Potential Revenue Model
+# Challenges Faced
 
-## Free Tier
-- Basic AI spend audit
-- Limited reports
+- Initial Vercel deployment configuration
+- Designing realistic audit recommendation logic
+- Matching UI polish with development speed
+- Managing multiple pricing conditions
 
-## Pro Tier ($19/month)
-- Advanced audit insights
-- Team analytics
+---
+
+# Technical Decisions
+
+## Hardcoded Audit Logic
+Used deterministic business rules instead of AI-generated calculations for explainability and predictable outputs.
+
+## Next.js + Tailwind CSS
+Chosen for fast development, scalability, and modern SaaS UI design patterns.
+
+## localStorage Persistence
+Implemented persistence without authentication to keep MVP lightweight.
+
+---
+
+# What I Would Improve With More Time
+
+- Authentication system
+- Multi-tool audits
+- Database integration
 - Shareable reports
-
-## Enterprise Tier
-- Organization-wide spend optimization
-- Custom AI procurement recommendations
-- Vendor negotiation support
+- PDF exports
+- Real-time pricing APIs
+- Analytics dashboard
+- AI-generated summaries
 
 ---
 
-# Why This Product Could Be Valuable
+# Biggest Learning
 
-Many startups overspend on overlapping AI subscriptions. A centralized audit platform can reduce unnecessary costs and improve procurement efficiency.
+This project improved my understanding of:
+- SaaS product thinking
+- frontend architecture
+- deployment workflows
+- recommendation systems
+- responsive UI design

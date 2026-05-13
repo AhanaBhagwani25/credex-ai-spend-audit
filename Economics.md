@@ -3,40 +3,56 @@
 ## Estimated Infrastructure Costs
 
 ### Vercel Hosting
-- Hobby Plan: $0/month during development
+- Development cost: $0/month
 - Estimated production cost: $20/month
 
-### Supabase
-- Free tier during MVP stage
+### Database (Future)
+- Supabase Free Tier during MVP stage
 - Estimated production cost: $25/month
 
 ### Domain
-- Approximate annual domain cost: $15/year
+- Estimated annual domain cost: $15/year
 
 ### AI APIs (Future)
-- OpenAI API estimated cost: $50–200/month depending on usage
+- OpenAI API estimated cost: $50–200/month
 - Anthropic API estimated cost: $50–150/month
 
 ---
 
-# Potential Revenue Model
+# Revenue Model
 
 ## Free Tier
-- Basic AI spend audit
-- Limited reports
+- Basic AI spend audits
+- Limited recommendations
 
 ## Pro Tier ($19/month)
-- Advanced audit insights
-- Team analytics
-- Shareable reports
+- Advanced analytics
+- Benchmarking
+- Team recommendations
 
 ## Enterprise Tier
-- Organization-wide spend optimization
-- Custom AI procurement recommendations
-- Vendor negotiation support
+- Organization-wide optimization
+- Procurement recommendations
+- Centralized AI tooling management
 
 ---
 
-# Why This Product Could Be Valuable
+# Why This Product Has Value
 
-Many startups overspend on overlapping AI subscriptions. A centralized audit platform can reduce unnecessary costs and improve procurement efficiency.
+Many startups and engineering teams overspend on overlapping AI subscriptions without visibility into optimization opportunities.
+
+A centralized AI spend audit platform can:
+- reduce unnecessary costs
+- improve budgeting visibility
+- optimize subscription management
+- simplify procurement decisions
+
+---
+
+# Future Monetization Opportunities
+
+- Enterprise procurement consulting
+- AI tooling benchmarking
+- SaaS partnership integrations
+- Usage analytics
+- Vendor optimization recommendations
